@@ -16,6 +16,16 @@ export default class SeerRandomGenerator extends Plugin {
 		);
 	}
 
+	onunload() {
+		// Remove the status bar text
+		if (this.statusBarText) {
+			this.statusBarText.remove();
+		}
+
+		// Unregister any other resources if needed
+		console.log("SeerRandomGenerator plugin unloaded.");
+	}
+
 	// Function to handle editor changes
 	handleEditorChange(editor: Editor) {
 		const keyphrase = ":gn"; // Updated keyphrase to :gn
